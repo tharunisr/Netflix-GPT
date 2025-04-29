@@ -5,6 +5,9 @@ Create a netflix-gpt folder
 3) install -D parcel
 4) install tailwindcss @tailwindcss/postcss
 5) configure the tailwind
+   
+   Header
+   Login (Sign In/ Sign Out)
 
 
 Login 
@@ -22,3 +25,4 @@ Browse(After Authetication)
 Neflix GPT
       - Search bar
       - Movie Suggesstions
+
