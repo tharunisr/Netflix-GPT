@@ -7,8 +7,16 @@ Create a netflix-gpt folder
 5) configure the tailwind
    
    Header
-   Login (Sign In/ Sign Out)
-
+   Routing the app
+   Login Form (Sign In/ Sign Out)
+   Form Validation - UseRef Hook
+   Firebase Setup for Authentication
+   Firebase Deploy
+   Create a Signup User Account
+   Implement SignIn user APi
+   Created userSlice with Redux store
+   Implement Sign Out
+   Updatedd the profile
 
 Login 
    -SignUp / SignIn
