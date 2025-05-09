@@ -16,7 +16,23 @@ Create a netflix-gpt folder
    Implement SignIn user APi
    Created userSlice with Redux store
    Implement Sign Out
-   Updatedd the profile
+   Updated the profile
+   bug Fix : The Sign Up display name and photo URl
+   bug fix : When the logged user try to "/browse" redirect to "/" and vice versa
+   Unsuscribed to the OnAuthStateChanged callback
+   Added hard-code data in the constants file.
+   Get the api from TMDM and add the data to the store(movie Slice).
+   create custom hooks to avoid messy code(browser (useEffect code) is moved to the custom hooks).
+   create planning for browser page
+   Create Main Container - Trailer, Movie Title
+   Create SecondaryConatiner - List * n Movies
+   fetch the data for trailer video
+   update the store with trailer data
+   Embeded the youtube video and add autoplay & mute
+   Added tailwind class to look awesome 
+   
+   
+
 
 Login 
    -SignUp / SignIn

@@ -1,4 +1,4 @@
-export const checkValidData =(email,password,isSignInForm,name)=>{
+export const checkValidData =(email,password,isSignInForm,nameValue)=>{
 
 
 // const isNameValid=/^[A-Za-z]+$/.test(name); 
@@ -14,8 +14,8 @@ const isPasswordValid=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test
 
 
 if (!isSignInForm) {
-    if (name.trim() === "") return "Enter name";
-    if (!/^[a-zA-Z][a-zA-Z\s'-]{1,}$/.test(name)) return "Invalid name";
+    if (nameValue.trim() === "") return "Enter name";
+    if (!/^[a-zA-Z][a-zA-Z\s'-]{1,}$/.test(nameValue)) return "Invalid name";
   }
   
  

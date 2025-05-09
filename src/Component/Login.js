@@ -4,15 +4,14 @@ import { BG_URL } from '../utils/constants';
 import {checkValidData } from "../utils/validate";
 import { auth } from '../utils/firebase';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile} from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-
+import { USER_AVATAR } from '../utils/constants';
 
 const Login=()=>{
     
   const dispatch=useDispatch();
-    const navigate=useNavigate()
+    
     const [isSignInForm,setIsSignInForm]=useState(true);
     const [errorMessage,setErrorMessage]=useState(null);
     const toggleSignInForm=()=>{
@@ -25,7 +24,8 @@ const Login=()=>{
 
     const handlebuttonClick=()=>{
         
-        const nameValue = name?.current?.value || "";
+        const nameValue = !isSignInForm ? name.current?.value : "";
+        // console.log(nameValue);
         const message=checkValidData(email.current.value, password.current.value, isSignInForm,nameValue);
         setErrorMessage(message)
 
@@ -37,15 +37,20 @@ const Login=()=>{
             .then((userCredential) => {
              
               const user = userCredential.user;
+              // console.log(user);
+              console.log("User object:", user);
+              console.log("Name value:", nameValue);
+              console.log("Avatar URL:", USER_AVATAR);
+
 
               updateProfile(user, {
-                displayName: name.current.value, photoURL: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                displayName: nameValue, photoURL: USER_AVATAR
               }).then(() => {
                 // Profile updated!
-                // console.log(user);
+    
                 const {uid,email,displayName,photoURL} = auth.currentUser;
-                dispatch((addUser({uid : uid, email:email, displayName:displayName,photoURL:photoURL })))
-                navigate("/browse")
+                dispatch((addUser({uid : uid, email:email, displayName:displayName,photoURL: photoURL })))
+              
                 
               }).catch((error) => {
                 // An error occurred
@@ -75,8 +80,8 @@ const Login=()=>{
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
               .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
-                navigate("/browse")
+               
+                
                 
               })
               .catch((error) => {
@@ -96,6 +101,7 @@ const Login=()=>{
    
     return <div>
         <Header/>
+        
         <div className='absolute w-full h-full'>
             <img src={BG_URL} alt="bg-img" className='w-full h-full object-cover'/>
         </div>
